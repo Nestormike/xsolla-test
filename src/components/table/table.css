@@ -1,0 +1,17 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid black;
+    margin-top: 20px;
+}
+ th, td {
+     padding: 20px;
+ }
+
+ tbody td{
+    text-align: center;
+ }
+
+ thead th, thead td{
+     font-family: 'Rock Salt', cursive;
+ }

@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { data } from './data';
+import { TransactonData } from './model/transaction-data';
+import { Table } from './components/table/table';
+import { Filter } from './components/filter/filter';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      filterFunction: tData => true
+    }
+  }
+
+  render() {
+
+    console.log(data)
+
+    const parsedData = data.map(obj => TransactonData.parse(obj));
+    const filtredData = parsedData.filter(tData => this.state.filterFunction(tData))
+    
+    console.log(parsedData)
+
+    return(
+      <div className="app">
+        <Filter data={parsedData} 
+                onChange={filterFunction => this.setState({filterFunction})}/>
+        <Table data={filtredData} />
+      </div>
+    )
+  }
 }
-
-export default App;
