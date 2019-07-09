@@ -10,6 +10,7 @@ export class Filter extends React.Component {
     }
 
     handleChange(projectsFilter) {
+        console.log(projectsFilter);
         this.props.onChange(tData => projectsFilter === 'Все проекты' || tData.transaction.project.name === projectsFilter)
 
         this.setState({

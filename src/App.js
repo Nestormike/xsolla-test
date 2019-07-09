@@ -17,12 +17,12 @@ export default class App extends React.Component {
 
   render() {
 
-    console.log(data)
+    //console.log(data)
 
     const parsedData = data.map(obj => TransactonData.parse(obj));
     const filtredData = parsedData.filter(tData => this.state.filterFunction(tData))
     
-    console.log(parsedData)
+    //console.log(parsedData)
 
     return(
       <div className="app">

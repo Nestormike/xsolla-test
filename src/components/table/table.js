@@ -16,10 +16,11 @@ export class Table extends React.Component {
                 </tr>
                 </thead>
 
+                <tbody>
                 {
                     this.props.data.map((tData, index) => 
-                        <tbody>
-                        <tr>
+                        
+                        <tr key={index}>
                             <td>{tData.transaction.project.name}</td>
                             <td>{tData.transaction.paymentMethod.name}</td>
                             <td>{new Date(tData.transaction.transferDate).toLocaleString()}</td>
@@ -27,9 +28,10 @@ export class Table extends React.Component {
                             <td>{tData.paymentDetails.payment.amount}</td>
                             <td>{tData.paymentDetails.payment.currency}</td>
                         </tr>
-                        </tbody>
+                        
                     ) 
                 }
+                </tbody>
             </table>
          )
      }
